@@ -1,4 +1,4 @@
-export default data = {
+module.exports = {
   name: "Armeen Hadizadeh",
   occupation: "Full-Stack Developer",
   imageSrc: "./assets/landing_photo.jpeg",
