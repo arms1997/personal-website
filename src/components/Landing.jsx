@@ -1,4 +1,6 @@
 import { Card, makeStyles } from "@material-ui/core";
+import { useSpring, animated } from "react-spring";
+
 import landingPhoto from "../assets/landing_photo.jpeg";
 
 const useStyles = makeStyles({
@@ -17,11 +19,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Landing = (props) => {
+const Landing = () => {
   const classes = useStyles();
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   return (
-    <div className={classes.root}>
+    <animated.div className={classes.root} style={props}>
       <Card className={classes.card}>
         <img
           className={classes.img}
@@ -29,7 +32,7 @@ const Landing = (props) => {
           alt={landingPhoto}
         ></img>
       </Card>
-    </div>
+    </animated.div>
   );
 };
 
