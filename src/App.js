@@ -1,13 +1,16 @@
-import "./App.css";
+import theme from "./themes/theme";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
+
+import Landing from "./components/Landing";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Navbar/>
-    <About/>
-    <Projects/>
-    <Contact/> */}
-    </div>
+    <ThemeProvider theme={theme}>
+      <Paper>
+        <Landing />
+      </Paper>
+    </ThemeProvider>
   );
 }
 
