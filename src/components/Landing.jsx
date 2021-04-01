@@ -1,7 +1,9 @@
-import { Card, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import { useSpring, animated } from "react-spring";
 
-import landingPhoto from "../assets/landing_photo.jpeg";
+import FlipCard from "./FlipCard/FlipCard";
+import Front from "./FlipCard/Front";
+import Back from "./FlipCard/Back";
 
 const useStyles = makeStyles({
   root: {
@@ -11,12 +13,6 @@ const useStyles = makeStyles({
     width: "100vw",
     height: "100vh",
   },
-  card: {
-    height: "80%",
-  },
-  img: {
-    height: "100%",
-  },
 });
 
 const Landing = () => {
@@ -25,13 +21,7 @@ const Landing = () => {
 
   return (
     <animated.div className={classes.root} style={props}>
-      <Card className={classes.card}>
-        <img
-          className={classes.img}
-          src={landingPhoto}
-          alt={landingPhoto}
-        ></img>
-      </Card>
+      <FlipCard front={Front} back={Back} />
     </animated.div>
   );
 };
