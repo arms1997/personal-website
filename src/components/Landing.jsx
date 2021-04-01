@@ -12,12 +12,19 @@ const useStyles = makeStyles({
     justifyContent: "center",
     width: "100vw",
     height: "100vh",
+    backgroundImage: `url(
+      https://www.transparenttextures.com/patterns/food.png
+    )`,
   },
 });
 
 const Landing = () => {
   const classes = useStyles();
-  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
+  const props = useSpring({
+    opacity: 1,
+    transform: `scale(1)`,
+    from: { opacity: 0, transform: `scale(2)` },
+  });
 
   return (
     <animated.div className={classes.root} style={props}>

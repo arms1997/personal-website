@@ -1,4 +1,6 @@
-import { Card, Button, makeStyles } from "@material-ui/core";
+import { Card, Button, makeStyles, Typography } from "@material-ui/core";
+import { useSpring, animated } from "react-spring";
+import { useState } from "react";
 
 const useStyles = makeStyles({
   card: {
@@ -6,21 +8,25 @@ const useStyles = makeStyles({
     width: "60vw",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-evenly",
+    background: "linear-gradient(#3E5151, #DECBA4)",
   },
   btn: {
-    height: "33%",
+    height: "100%",
   },
 });
 
 export default function Back() {
   const classes = useStyles();
 
+  const buttons = ["Portfolio", "About Me", "Resume"];
+
   return (
-    <Card className={classes.card}>
-      <Button className={classes.btn}>Portfolio</Button>
-      <Button className={classes.btn}>About Me</Button>
-      <Button className={classes.btn}>Resume</Button>
+    <Card className={classes.card} color="default">
+      {buttons.map((button) => (
+        <Button fullWidth className={classes.btn}>
+          <Typography variant="h5">{button}</Typography>
+        </Button>
+      ))}
     </Card>
   );
 }
