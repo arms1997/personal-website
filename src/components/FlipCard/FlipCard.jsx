@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { Card, Button, makeStyles, CardActionArea } from "@material-ui/core";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 
-import landingPhoto from "../../assets/landing_photo.jpeg";
+import landingPhotoOne from "../../assets/landing_photo.jpeg";
+import landingPhotoTwo from "../../assets/landing_photo_2.jpeg";
+import landingPhotoThree from "../../assets/landing_photo_3.jpeg";
+import landingPhotoFour from "../../assets/landing_photo_4.jpeg";
+import landingPhotoFive from "../../assets/landing_photo_5.jpeg";
+import landingPhotoSix from "../../assets/landing_photo_6.jpeg";
+
+const imageArray = [
+  landingPhotoOne,
+  landingPhotoTwo,
+  landingPhotoThree,
+  landingPhotoFour,
+  landingPhotoFive,
+  landingPhotoSix,
+];
 
 const useStyles = makeStyles({
   root: {
@@ -39,7 +53,14 @@ export default function FlipCard() {
   const classes = useStyles();
   const history = useHistory();
 
+  const [image, setImage] = useState(landingPhotoOne);
   const [flipped, set] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      setImage(imageArray[Math.floor(Math.random() * 6)]);
+    }, 3000);
+  }, []);
 
   const props = useSpring({
     opacity: flipped ? 1 : 0,
@@ -65,11 +86,7 @@ export default function FlipCard() {
         }}
       >
         <Card className={classes.card}>
-          <img
-            className={classes.img}
-            src={landingPhoto}
-            alt="landing Photo"
-          ></img>
+          <img className={classes.img} src={image} alt="landing"></img>
         </Card>
       </animated.div>
       <animated.div
