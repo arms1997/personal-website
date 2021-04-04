@@ -16,10 +16,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "100%",
   },
+  name: {
+    marginLeft: "20px",
+  },
   buttonGroup: {
     display: "flex",
     justifyContent: "space-evenly",
     width: "20vw",
+    marginRight: 8,
   },
 }));
 
@@ -43,9 +47,11 @@ const Navbar = (props) => {
   }
 
   return (
-    <AppBar className={classes.root} color="inherit">
+    <AppBar className={classes.root} color="inherit" position="sticky">
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6">{data.name}</Typography>
+        <Typography className={classes.name} variant="h6">
+          {data.name}
+        </Typography>
         <div className={classes.buttonGroup}>
           <button class="bttn-minimal bttn-md">Portfolio</button>
           <button class="bttn-minimal bttn-md">About Me</button>
