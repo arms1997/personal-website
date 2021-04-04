@@ -44,7 +44,7 @@ export default function FlipCard({ front, back }) {
           ),
         }}
       >
-        {back()}
+        {back(flipped)}
       </animated.div>
     </div>
   );
