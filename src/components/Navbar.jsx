@@ -1,10 +1,10 @@
 import { AppBar, makeStyles, Toolbar, Typography } from "@material-ui/core";
-
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import throttle from "lodash/throttle";
 
 import "../styles/bttn.min.css";
 import data from "../data.js";
-import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
-    width: "60vw",
+    width: "100%",
   },
   buttonGroup: {
     display: "flex",
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = (props) => {
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
   const classes = useStyles();
 
   function throttleHandleWindowResize() {
@@ -36,6 +37,10 @@ const Navbar = (props) => {
 
     return window.removeEventListener("resize", throttleHandleWindowResize);
   }, []);
+
+  if (location.pathname === "/") {
+    return null;
+  }
 
   return (
     <AppBar className={classes.root} color="inherit">
