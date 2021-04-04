@@ -20,8 +20,6 @@ export default function Back(flipped) {
   const classes = useStyles();
   const history = useHistory();
 
-  console.log(flipped);
-
   const buttons = ["Portfolio", "About Me", "Resume"];
 
   const handleClick = (path) => {
