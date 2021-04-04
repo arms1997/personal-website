@@ -1,5 +1,6 @@
 import { Card, Button, makeStyles, Typography } from "@material-ui/core";
 import { useSpring, animated } from "react-spring";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 const useStyles = makeStyles({
@@ -15,15 +16,28 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Back() {
+export default function Back(flipped) {
   const classes = useStyles();
+  const history = useHistory();
+
+  console.log(flipped);
 
   const buttons = ["Portfolio", "About Me", "Resume"];
+
+  const handleClick = (path) => {
+    if (flipped) {
+      history.push(path);
+    }
+  };
 
   return (
     <Card className={classes.card} color="default">
       {buttons.map((button) => (
-        <Button fullWidth className={classes.btn}>
+        <Button
+          fullWidth
+          className={classes.btn}
+          onClick={() => handleClick(`/${button.toLowerCase()}`)}
+        >
           <Typography variant="h5">{button}</Typography>
         </Button>
       ))}
