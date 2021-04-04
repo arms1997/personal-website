@@ -3,18 +3,21 @@ import { useSpring, animated } from "react-spring";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     height: "80vh",
     width: "60vw",
     display: "flex",
     flexDirection: "column",
-    background: "linear-gradient(#3E5151, #DECBA4)",
+    background:
+      theme.palette.type === "dark"
+        ? "linear-gradient(#3E5151, #DECBA4)"
+        : "linear-gradient(#00000, #DECBA4)",
   },
   btn: {
     height: "100%",
   },
-});
+}));
 
 export default function Back(flipped) {
   const classes = useStyles();
