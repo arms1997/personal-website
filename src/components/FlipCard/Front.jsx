@@ -36,9 +36,12 @@ export default function Front() {
   const classes = useStyles();
 
   useEffect(() => {
-    setInterval(() => {
+    const id = setInterval(() => {
+      console.log("interval");
       setImage(imageArray[Math.floor(Math.random() * 6)]);
     }, 5000);
+
+    return () => clearInterval(id);
   }, []);
 
   return (
