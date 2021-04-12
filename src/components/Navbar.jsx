@@ -8,7 +8,6 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import throttle from "lodash/throttle";
-import classnames from "classnames";
 import "../styles/bttn.min.css";
 
 import spriteRun from "../assets/sprite-run.gif";
@@ -79,10 +78,10 @@ const Navbar = (props) => {
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-          <img
+          {/* <img
             src={hover ? spriteRun : spriteWave}
             className={classes.sprite}
-          />
+          /> */}
           <Typography className={classes.name} variant="h6">
             {data.name}
           </Typography>
