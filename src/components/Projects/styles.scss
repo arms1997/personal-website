@@ -1,0 +1,24 @@
+.ProjectList {
+  display: grid;
+  grid-template-columns: repeat(2, 800px);
+  justify-items: center;
+}
+
+.ProjectCard {
+  width: 600px;
+  height: 331px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__stack {
+    display: flex;
+    width: 600px;
+    height: 100px;
+  }
+}
