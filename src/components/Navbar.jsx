@@ -1,9 +1,18 @@
-import { AppBar, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import throttle from "lodash/throttle";
-
+import classnames from "classnames";
 import "../styles/bttn.min.css";
+
+import spriteRun from "../assets/sprite-run.gif";
+import spriteWave from "../assets/sprite-wave.gif";
 import data from "../data.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,8 +25,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "100%",
   },
-  name: {
+  spriteGroup: {
+    display: "flex",
+    alignItems: "center",
+    width: "30%",
     marginLeft: "20px",
+  },
+  sprite: {
+    height: "50px",
+    margin: "0px 10px",
   },
   buttonGroup: {
     display: "flex",
@@ -25,10 +41,12 @@ const useStyles = makeStyles((theme) => ({
     width: "20vw",
     marginRight: 8,
   },
+  buttonSelected: {},
 }));
 
 const Navbar = (props) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [hover, setHover] = useState(false);
   const location = useLocation();
   const classes = useStyles();
 
@@ -46,16 +64,33 @@ const Navbar = (props) => {
     return null;
   }
 
+  const handleMouseOver = () => {
+    setHover(true);
+  };
+
+  const handleMouseOut = () => {
+    setHover(false);
+  };
   return (
     <AppBar className={classes.root} color="inherit" position="sticky">
       <Toolbar className={classes.toolbar}>
-        <Typography className={classes.name} variant="h6">
-          {data.name}
-        </Typography>
+        <div
+          className={classes.spriteGroup}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <img
+            src={hover ? spriteRun : spriteWave}
+            className={classes.sprite}
+          />
+          <Typography className={classes.name} variant="h6">
+            {data.name}
+          </Typography>
+        </div>
         <div className={classes.buttonGroup}>
-          <button class="bttn-minimal bttn-md">Portfolio</button>
-          <button class="bttn-minimal bttn-md">About Me</button>
-          <button class="bttn-minimal bttn-md">Resume</button>
+          <Button className="bttn-minimal bttn-md">Portfolio</Button>
+          <Button className="bttn-minimal bttn-md">About Me</Button>
+          <Button className="bttn-minimal bttn-md">Resume</Button>
         </div>
       </Toolbar>
     </AppBar>
