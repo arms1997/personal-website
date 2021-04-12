@@ -24,18 +24,29 @@ module.exports = {
         "Stock application that correlates trends in a specific stock to relevant news in that time period",
       stack:
         "React.js, React-Vis, SCSS, Material-UI, Firebase Authentication, Node.js, Express.js, Socket.io, Twilio",
+      imageSrc:
+        "https://github.com/arms1997/Stonks/blob/master/docs/loginform.png?raw=true",
+      gifSrc:
+        "https://github.com/arms1997/Stonks/blob/master/docs/tickerpage.gif?raw=true",
     },
     {
       name: "Binderz",
       description:
         "Designed and developed a resource wall similar to Pinterest, intended for students to share, like, and create resources with each other",
       stack: "jQuery, SCSS, Node.js, Express.js, PostgreSQL",
+      imageSrc:
+        "https://github.com/elim04/binderz/blob/master/docs/HomePage.png?raw=true",
+      gifSrc:
+        "https://github.com/elim04/binderz/blob/master/docs/HomePage.png?raw=true",
     },
     {
       name: "Scheduler",
       description:
         "Scheduler Application developed with React and WebSockets to allow for students to create meetings with mentors in real time",
       stack: "React.js, Axios, Storybook, Cypress, Jest",
+      imageSrc: "../../assets/scheduler.png",
+      gifSrc:
+        "https://github.com/arms1997/scheduler/raw/master/docs/createInterview.gif?raw=true",
     },
   ],
   experience: [
