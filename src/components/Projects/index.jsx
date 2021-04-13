@@ -6,18 +6,16 @@ import "./styles.scss";
 
 const ProjectList = (props) => {
   return (
-    <Container>
-      <div className="ProjectList">
-        {data.projects.map((project) => (
-          <ProjectCard
-            name={project.name}
-            stack={project.stack}
-            imgSrc={project.imageSrc}
-            imgGif={project.gifSrc}
-          />
-        ))}
-      </div>
-    </Container>
+    <div className="ProjectList">
+      {data.projects.map((project) => (
+        <ProjectCard
+          name={project.name}
+          stack={project.stack}
+          imgSrc={project.imageSrc}
+          imgGif={project.gifSrc}
+        />
+      ))}
+    </div>
   );
 };
 
