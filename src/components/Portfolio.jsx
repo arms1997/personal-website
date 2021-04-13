@@ -70,7 +70,14 @@ export default function Portfolio(props) {
   // )
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {header()}
       <Projects />
     </div>
