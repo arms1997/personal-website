@@ -8,10 +8,9 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import throttle from "lodash/throttle";
+import classNames from "classnames";
 import "../styles/bttn.min.css";
 
-import spriteRun from "../assets/sprite-run.gif";
-import spriteWave from "../assets/sprite-wave.gif";
 import data from "../data.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+    padding: 0,
     width: "100%",
   },
   spriteGroup: {
@@ -78,18 +78,29 @@ const Navbar = (props) => {
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-          {/* <img
-            src={hover ? spriteRun : spriteWave}
-            className={classes.sprite}
-          /> */}
           <Typography className={classes.name} variant="h6">
             {data.name}
           </Typography>
         </div>
         <div className={classes.buttonGroup}>
-          <Button className="bttn-minimal bttn-md">Portfolio</Button>
-          <Button className="bttn-minimal bttn-md">About Me</Button>
-          <Button className="bttn-minimal bttn-md">Resume</Button>
+          <Button
+            className="bttn-minimal bttn-md"
+            disabled={location.pathname === "/portfolio"}
+          >
+            Portfolio
+          </Button>
+          <Button
+            className="bttn-minimal bttn-md"
+            disabled={location.pathname === "/about me"}
+          >
+            About Me
+          </Button>
+          <Button
+            className="bttn-minimal bttn-md"
+            disabled={location.pathname === "/resume"}
+          >
+            Resume
+          </Button>
         </div>
       </Toolbar>
     </AppBar>
